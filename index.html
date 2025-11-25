@@ -12,19 +12,22 @@
         <div class="container">
             <div class="logo">
                 <span class="logo-icon">🤖</span>
-                <span class="logo-text">AI Robot</span>
+                <span class="logo-text" data-i18n="brand.name">AI Robot</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="tab-link active" data-tab-target="home">首页</a></li>
-                <li><a href="#about" class="tab-link" data-tab-target="about">关于</a></li>
-                <li><a href="#features" class="tab-link" data-tab-target="features">功能</a></li>
-                <li><a href="#tech" class="tab-link" data-tab-target="tech">技术</a></li>
-                <li><a href="#contact" class="tab-link" data-tab-target="contact">联系</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="tab-link active" data-tab-target="home" data-i18n="nav.home">首页</a></li>
+                    <li><a href="#about" class="tab-link" data-tab-target="about" data-i18n="nav.about">关于</a></li>
+                    <li><a href="#features" class="tab-link" data-tab-target="features" data-i18n="nav.features">功能</a></li>
+                    <li><a href="#tech" class="tab-link" data-tab-target="tech" data-i18n="nav.tech">技术</a></li>
+                    <li><a href="#contact" class="tab-link" data-tab-target="contact" data-i18n="nav.contact">联系</a></li>
+                </ul>
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -57,13 +60,13 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="gradient-text">AI机器人</span>
-                    <br>开启智能未来
+                    <span class="gradient-text" data-i18n="hero.titleHighlight">AI机器人</span>
+                    <br><span data-i18n="hero.titleMain">开启智能未来</span>
                 </h1>
-                <p class="hero-subtitle">融合人工智能与创新科技，打造下一代智能助手</p>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">融合人工智能与创新科技，打造下一代智能助手</p>
                 <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary tab-trigger" data-tab-target="about">探索更多</a>
-                    <a href="#contact" class="btn btn-secondary tab-trigger" data-tab-target="contact">立即体验</a>
+                    <a href="#about" class="btn btn-primary tab-trigger" data-tab-target="about" data-i18n="hero.btnExplore">探索更多</a>
+                    <a href="#contact" class="btn btn-secondary tab-trigger" data-tab-target="contact" data-i18n="hero.btnExperience">立即体验</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -91,30 +94,30 @@
     <section id="about" class="about tab-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">关于AI机器人</h2>
-                <p class="section-subtitle">革命性的智能助手，重新定义人机交互</p>
+                <h2 class="section-title" data-i18n="about.title">关于AI机器人</h2>
+                <p class="section-subtitle" data-i18n="about.subtitle">革命性的智能助手，重新定义人机交互</p>
             </div>
             <div class="about-content">
                 <div class="about-card" data-about="learning">
                     <div class="card-media">
                         <img src="resource/1.png" alt="AI 机器人智能学习插图">
                     </div>
-                    <h3>智能学习</h3>
-                    <p>采用深度学习算法，持续学习并优化，提供更精准的服务</p>
+                    <h3 data-i18n="about.cards.learning.title">智能学习</h3>
+                    <p data-i18n="about.cards.learning.desc">采用深度学习算法，持续学习并优化，提供更精准的服务</p>
                 </div>
                 <div class="about-card" data-about="speed">
                     <div class="card-media">
                         <img src="resource/2.jpg" alt="AI 极速响应插图">
                     </div>
-                    <h3>极速响应</h3>
-                    <p>毫秒级响应速度，实时处理您的需求，提升工作效率</p>
+                    <h3 data-i18n="about.cards.speed.title">极速响应</h3>
+                    <p data-i18n="about.cards.speed.desc">毫秒级响应速度，实时处理您的需求，提升工作效率</p>
                 </div>
                 <div class="about-card" data-about="security">
                     <div class="card-media">
                         <img src="resource/3.jpg" alt="AI 安全可靠插图">
                     </div>
-                    <h3>安全可靠</h3>
-                    <p>企业级安全防护，保护您的数据隐私和信息安全</p>
+                    <h3 data-i18n="about.cards.security.title">安全可靠</h3>
+                    <p data-i18n="about.cards.security.desc">企业级安全防护，保护您的数据隐私和信息安全</p>
                 </div>
             </div>
         </div>
@@ -124,39 +127,39 @@
     <section id="features" class="features tab-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">核心功能</h2>
-                <p class="section-subtitle">强大的功能，满足您的各种需求</p>
+                <h2 class="section-title" data-i18n="features.title">核心功能</h2>
+                <p class="section-subtitle" data-i18n="features.subtitle">强大的功能，满足您的各种需求</p>
             </div>
             <div class="features-grid">
                 <div class="feature-item" data-feature="dialogue">
                     <div class="feature-icon">💬</div>
-                    <h3>智能对话</h3>
-                    <p>自然语言处理，理解上下文，进行流畅对话</p>
+                    <h3 data-i18n="features.items.dialogue.title">智能对话</h3>
+                    <p data-i18n="features.items.dialogue.desc">自然语言处理，理解上下文，进行流畅对话</p>
                 </div>
                 <div class="feature-item" data-feature="analysis">
                     <div class="feature-icon">📊</div>
-                    <h3>数据分析</h3>
-                    <p>快速分析大量数据，生成可视化报告</p>
+                    <h3 data-i18n="features.items.analysis.title">数据分析</h3>
+                    <p data-i18n="features.items.analysis.desc">快速分析大量数据，生成可视化报告</p>
                 </div>
                 <div class="feature-item" data-feature="creative">
                     <div class="feature-icon">🎨</div>
-                    <h3>创意生成</h3>
-                    <p>AI驱动的创意工具，激发无限灵感</p>
+                    <h3 data-i18n="features.items.creative.title">创意生成</h3>
+                    <p data-i18n="features.items.creative.desc">AI驱动的创意工具，激发无限灵感</p>
                 </div>
                 <div class="feature-item" data-feature="multilang">
                     <div class="feature-icon">🌐</div>
-                    <h3>多语言支持</h3>
-                    <p>支持全球多种语言，打破沟通壁垒</p>
+                    <h3 data-i18n="features.items.multilang.title">多语言支持</h3>
+                    <p data-i18n="features.items.multilang.desc">支持全球多种语言，打破沟通壁垒</p>
                 </div>
                 <div class="feature-item" data-feature="automation">
                     <div class="feature-icon">🔧</div>
-                    <h3>自动化任务</h3>
-                    <p>智能自动化，解放双手，提高效率</p>
+                    <h3 data-i18n="features.items.automation.title">自动化任务</h3>
+                    <p data-i18n="features.items.automation.desc">智能自动化，解放双手，提高效率</p>
                 </div>
                 <div class="feature-item" data-feature="crossplatform">
                     <div class="feature-icon">📱</div>
-                    <h3>跨平台</h3>
-                    <p>支持多平台使用，随时随地访问</p>
+                    <h3 data-i18n="features.items.crossplatform.title">跨平台</h3>
+                    <p data-i18n="features.items.crossplatform.desc">支持多平台使用，随时随地访问</p>
                 </div>
             </div>
         </div>
@@ -166,13 +169,13 @@
     <section id="tech" class="tech tab-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">技术架构</h2>
-                <p class="section-subtitle">前沿技术，驱动未来</p>
+                <h2 class="section-title" data-i18n="tech.title">技术架构</h2>
+                <p class="section-subtitle" data-i18n="tech.subtitle">前沿技术，驱动未来</p>
             </div>
             <div class="tech-content">
                 <div class="tech-item">
                     <div class="tech-bar">
-                        <div class="tech-label">机器学习</div>
+                        <div class="tech-label" data-i18n="tech.metrics.ml">机器学习</div>
                         <div class="tech-progress" data-progress="95">
                             <div class="tech-fill"></div>
                         </div>
@@ -180,7 +183,7 @@
                 </div>
                 <div class="tech-item">
                     <div class="tech-bar">
-                        <div class="tech-label">自然语言处理</div>
+                        <div class="tech-label" data-i18n="tech.metrics.nlp">自然语言处理</div>
                         <div class="tech-progress" data-progress="90">
                             <div class="tech-fill"></div>
                         </div>
@@ -188,7 +191,7 @@
                 </div>
                 <div class="tech-item">
                     <div class="tech-bar">
-                        <div class="tech-label">计算机视觉</div>
+                        <div class="tech-label" data-i18n="tech.metrics.cv">计算机视觉</div>
                         <div class="tech-progress" data-progress="88">
                             <div class="tech-fill"></div>
                         </div>
@@ -196,7 +199,7 @@
                 </div>
                 <div class="tech-item">
                     <div class="tech-bar">
-                        <div class="tech-label">神经网络</div>
+                        <div class="tech-label" data-i18n="tech.metrics.nn">神经网络</div>
                         <div class="tech-progress" data-progress="92">
                             <div class="tech-fill"></div>
                         </div>
@@ -204,75 +207,75 @@
                 </div>
             </div>
             <div class="tech-stack">
-                <h3 class="tech-subtitle">多层架构</h3>
-                <p class="tech-description">AI Robot 采用数据→感知→认知→部署的多层体系，确保从数据采集到智能服务全链路可控。</p>
+                <h3 class="tech-subtitle" data-i18n="tech.stack.title">多层架构</h3>
+                <p class="tech-description" data-i18n="tech.stack.desc">AI Robot 采用数据→感知→认知→部署的多层体系，确保从数据采集到智能服务全链路可控。</p>
                 <div class="tech-stack-grid">
                     <div class="tech-card">
                         <div class="tech-card-icon">🛰️</div>
-                        <h4>数据层</h4>
-                        <p>多源传感器与业务系统实时汇聚，支持结构化与非结构化数据。</p>
+                        <h4 data-i18n="tech.stack.data.title">数据层</h4>
+                        <p data-i18n="tech.stack.data.desc">多源传感器与业务系统实时汇聚，支持结构化与非结构化数据。</p>
                         <ul>
-                            <li>Kafka + MQTT 流式通道</li>
-                            <li>湖仓一体存储架构</li>
-                            <li>内置数据脱敏策略</li>
+                            <li data-i18n="tech.stack.data.item1">Kafka + MQTT 流式通道</li>
+                            <li data-i18n="tech.stack.data.item2">湖仓一体存储架构</li>
+                            <li data-i18n="tech.stack.data.item3">内置数据脱敏策略</li>
                         </ul>
                     </div>
                     <div class="tech-card">
                         <div class="tech-card-icon">🧠</div>
-                        <h4>认知层</h4>
-                        <p>多模型协同推理，融合 NLP、CV 与多模态感知。</p>
+                        <h4 data-i18n="tech.stack.cognitive.title">认知层</h4>
+                        <p data-i18n="tech.stack.cognitive.desc">多模型协同推理，融合 NLP、CV 与多模态感知。</p>
                         <ul>
-                            <li>Transformer + GNN 混合模型</li>
-                            <li>AutoML 自动超参优化</li>
-                            <li>知识图谱实时更新</li>
+                            <li data-i18n="tech.stack.cognitive.item1">Transformer + GNN 混合模型</li>
+                            <li data-i18n="tech.stack.cognitive.item2">AutoML 自动超参优化</li>
+                            <li data-i18n="tech.stack.cognitive.item3">知识图谱实时更新</li>
                         </ul>
                     </div>
                     <div class="tech-card">
                         <div class="tech-card-icon">☁️</div>
-                        <h4>服务层</h4>
-                        <p>基于微服务与 Serverless 架构，按需弹性扩缩。</p>
+                        <h4 data-i18n="tech.stack.service.title">服务层</h4>
+                        <p data-i18n="tech.stack.service.desc">基于微服务与 Serverless 架构，按需弹性扩缩。</p>
                         <ul>
-                            <li>Kubernetes 智能调度</li>
-                            <li>边缘+云协同部署</li>
-                            <li>灰度发布与A/B测试</li>
+                            <li data-i18n="tech.stack.service.item1">Kubernetes 智能调度</li>
+                            <li data-i18n="tech.stack.service.item2">边缘+云协同部署</li>
+                            <li data-i18n="tech.stack.service.item3">灰度发布与A/B测试</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="tech-pipeline">
-                <h3 class="tech-subtitle">智能工作流</h3>
+                <h3 class="tech-subtitle" data-i18n="tech.pipeline.title">智能工作流</h3>
                 <div class="pipeline-steps">
                     <div class="pipeline-step">
                         <div class="pipeline-image">
                             <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="数据采集流程示意图" loading="lazy">
                         </div>
                         <div class="step-index">01</div>
-                        <h4>数据采集</h4>
-                        <p>多源实时数据进入消息总线，自动完成清洗与标准化。</p>
+                        <h4 data-i18n="tech.pipeline.step1.title">数据采集</h4>
+                        <p data-i18n="tech.pipeline.step1.desc">多源实时数据进入消息总线，自动完成清洗与标准化。</p>
                     </div>
                     <div class="pipeline-step">
                         <div class="pipeline-image">
                             <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="模型训练 GPU 集群" loading="lazy">
                         </div>
                         <div class="step-index">02</div>
-                        <h4>模型训练</h4>
-                        <p>AutoML 管理训练任务，结合 GPU 集群快速收敛。</p>
+                        <h4 data-i18n="tech.pipeline.step2.title">模型训练</h4>
+                        <p data-i18n="tech.pipeline.step2.desc">AutoML 管理训练任务，结合 GPU 集群快速收敛。</p>
                     </div>
                     <div class="pipeline-step">
                         <div class="pipeline-image">
                             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="智能推理代码界面" loading="lazy">
                         </div>
                         <div class="step-index">03</div>
-                        <h4>智能推理</h4>
-                        <p>根据场景自动选择最佳模型，输出解释型推理结果。</p>
+                        <h4 data-i18n="tech.pipeline.step3.title">智能推理</h4>
+                        <p data-i18n="tech.pipeline.step3.desc">根据场景自动选择最佳模型，输出解释型推理结果。</p>
                     </div>
                     <div class="pipeline-step">
                         <div class="pipeline-image">
                             <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80" alt="部署反馈监控面板" loading="lazy">
                         </div>
                         <div class="step-index">04</div>
-                        <h4>部署反馈</h4>
-                        <p>服务网格统一发布，监控闭环反馈模型，再训练持续迭代。</p>
+                        <h4 data-i18n="tech.pipeline.step4.title">部署反馈</h4>
+                        <p data-i18n="tech.pipeline.step4.desc">服务网格统一发布，监控闭环反馈模型，再训练持续迭代。</p>
                     </div>
                 </div>
             </div>
@@ -283,21 +286,21 @@
     <section id="contact" class="contact tab-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">联系我们</h2>
-                <p class="section-subtitle">让我们一起探索AI的无限可能</p>
+                <h2 class="section-title" data-i18n="contact.title">联系我们</h2>
+                <p class="section-subtitle" data-i18n="contact.subtitle">让我们一起探索AI的无限可能</p>
             </div>
             <div class="contact-content">
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" id="contactName" placeholder="您的姓名" required>
+                        <input type="text" id="contactName" placeholder="您的姓名" data-i18n-placeholder="contact.form.name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="contactEmail" placeholder="您的邮箱" required>
+                        <input type="email" id="contactEmail" placeholder="您的邮箱" data-i18n-placeholder="contact.form.email" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="contactMessage" placeholder="您的消息" rows="5" required></textarea>
+                        <textarea id="contactMessage" placeholder="您的消息" rows="5" data-i18n-placeholder="contact.form.message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">发送消息</button>
+                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">发送消息</button>
                 </form>
             </div>
         </div>
@@ -308,28 +311,28 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>AI Robot</h3>
-                    <p>引领智能未来，创造无限可能</p>
+                    <h3 data-i18n="footer.brand">AI Robot</h3>
+                    <p data-i18n="footer.tagline">引领智能未来，创造无限可能</p>
                 </div>
                 <div class="footer-section">
-                    <h4>快速链接</h4>
+                    <h4 data-i18n="footer.linksTitle">快速链接</h4>
                     <ul>
-                        <li><a href="#home" class="tab-trigger" data-tab-target="home">首页</a></li>
-                        <li><a href="#about" class="tab-trigger" data-tab-target="about">关于</a></li>
-                        <li><a href="#features" class="tab-trigger" data-tab-target="features">功能</a></li>
-                        <li><a href="#tech" class="tab-trigger" data-tab-target="tech">技术</a></li>
+                        <li><a href="#home" class="tab-trigger" data-tab-target="home" data-i18n="nav.home">首页</a></li>
+                        <li><a href="#about" class="tab-trigger" data-tab-target="about" data-i18n="nav.about">关于</a></li>
+                        <li><a href="#features" class="tab-trigger" data-tab-target="features" data-i18n="nav.features">功能</a></li>
+                        <li><a href="#tech" class="tab-trigger" data-tab-target="tech" data-i18n="nav.tech">技术</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>联系方式</h4>
+                    <h4 data-i18n="footer.contactTitle">联系方式</h4>
                     <ul>
-                        <li>邮箱: contact@airobot.com</li>
-                        <li>电话: +86 123 4567 8900</li>
+                        <li data-i18n="footer.email">邮箱: contact@airobot.com</li>
+                        <li data-i18n="footer.phone">电话: +86 123 4567 8900</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 AI Robot. All rights reserved.</p>
+                <p data-i18n="footer.copy">&copy; 2024 AI Robot. All rights reserved.</p>
             </div>
         </div>
     </footer>
