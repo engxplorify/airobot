@@ -1,1175 +1,358 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #00d4ff;
-    --secondary-color: #7b2ff7;
-    --accent-color: #ff006e;
-    --bg-dark: #0a0e27;
-    --bg-darker: #050810;
-    --text-light: #ffffff;
-    --text-gray: #b0b0b0;
-    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--bg-dark);
-    color: var(--text-light);
-    overflow-x: hidden;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 导航栏 */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(10, 14, 39, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.logo-icon {
-    font-size: 2rem;
-    animation: pulse 2s infinite;
-}
-
-.logo-text {
-    background: var(--gradient-3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-menu a {
-    color: var(--text-light);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.nav-menu a:hover::after {
-    width: 100%;
-}
-
-.nav-menu a:hover {
-    color: var(--primary-color);
-}
-
-.nav-menu a.active {
-    color: var(--primary-color);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-/* 首页部分 */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding-top: 220px;
-    padding-bottom: 160px;
-    overflow: hidden;
-}
-
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(123, 47, 247, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(255, 0, 110, 0.1) 0%, transparent 50%);
-    animation: particleMove 20s ease-in-out infinite;
-}
-
-@keyframes particleMove {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-20px, -20px) scale(1.1); }
-}
-
-.hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 120px 120px;
-    opacity: 0.3;
-    mask-image: radial-gradient(circle at center, rgba(255,255,255,0.9), transparent 70%);
-    z-index: 0;
-}
-
-.hero-effects {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.glow-sphere {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    filter: blur(0);
-    opacity: 0.5;
-    background: radial-gradient(circle, rgba(0,212,255,0.8), rgba(0,212,255,0));
-    animation: float 6s ease-in-out infinite;
-}
-
-.sphere-one {
-    top: 15%;
-    left: 20%;
-}
-
-.sphere-two {
-    bottom: 10%;
-    right: 18%;
-    animation-delay: 1.5s;
-}
-
-.sphere-three {
-    top: 40%;
-    right: 10%;
-    width: 140px;
-    height: 140px;
-    background: radial-gradient(circle, rgba(123,47,247,0.8), rgba(123,47,247,0));
-    animation-delay: 2.3s;
-}
-
-.orbit {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    border: 1px dashed rgba(0, 212, 255, 0.4);
-    animation: rotateOrbit 12s linear infinite;
-}
-
-.orbit span {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    box-shadow: 0 0 10px var(--primary-color);
-}
-
-.orbit-one {
-    top: 25%;
-    right: 25%;
-}
-
-.orbit-one span:nth-child(1) { top: -5px; left: 50%; transform: translateX(-50%); }
-.orbit-one span:nth-child(2) { left: -5px; top: 50%; transform: translateY(-50%); }
-.orbit-one span:nth-child(3) { bottom: -5px; left: 50%; transform: translateX(-50%); }
-
-.orbit-two {
-    bottom: 15%;
-    left: 15%;
-    width: 180px;
-    height: 180px;
-    animation-duration: 9s;
-}
-
-.orbit-two span:nth-child(1) { top: -5px; left: 20%; }
-.orbit-two span:nth-child(2) { right: -5px; top: 50%; transform: translateY(-50%); }
-.orbit-two span:nth-child(3) { bottom: -5px; left: 70%; }
-
-@keyframes rotateOrbit {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.data-stream {
-    position: absolute;
-    right: 5%;
-    top: 20%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: rgba(255, 255, 255, 0.4);
-    font-family: 'Consolas', 'SFMono-Regular', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-}
-
-.data-stream span {
-    animation: dataFlow 4s linear infinite;
-}
-
-.data-stream span:nth-child(2) { animation-delay: 0.3s; }
-.data-stream span:nth-child(3) { animation-delay: 0.6s; }
-.data-stream span:nth-child(4) { animation-delay: 0.9s; }
-
-@keyframes dataFlow {
-    0% { opacity: 0; transform: translateY(10px); }
-    30% { opacity: 0.6; }
-    70% { opacity: 0.6; }
-    100% { opacity: 0; transform: translateY(-10px); }
-}
-
-.hero .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
-    position: relative;
-    z-index: 1;
-    flex-wrap: wrap;
-}
-
-.hero-content,
-.hero-visual {
-    flex: 1 1 320px;
-}
-
-.hero-content {
-    animation: fadeInLeft 1s ease;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    animation: fadeInRight 1s ease;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-.gradient-text {
-    background: var(--gradient-3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-    0%, 100% { filter: hue-rotate(0deg); }
-    50% { filter: hue-rotate(90deg); }
-}
-
-.hero-subtitle {
-    font-size: 1.3rem;
-    color: var(--text-gray);
-    margin-bottom: 2rem;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-primary {
-    background: var(--gradient-3);
-    color: var(--text-light);
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background: var(--primary-color);
-    color: var(--bg-dark);
-    transform: translateY(-3px);
-}
-
-/* 机器人动画 */
-.robot-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeInRight 1s ease;
-}
-
-.robot {
-    position: relative;
-    width: 260px;
-    height: 380px;
-}
-
-.robot-head {
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 20px;
-    margin: 0 auto 25px;
-    position: relative;
-    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
-    animation: float 3s ease-in-out infinite;
-}
-
-.robot-eye {
-    width: 26px;
-    height: 26px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    position: absolute;
-    top: 45px;
-    box-shadow: 0 0 20px var(--primary-color);
-    animation: blink 3s infinite;
-}
-
-.left-eye {
-    left: 38px;
-}
-
-.right-eye {
-    right: 38px;
-}
-
-.robot-mouth {
-    width: 60px;
-    height: 28px;
-    border: 3px solid var(--primary-color);
-    border-top: none;
-    border-radius: 0 0 40px 40px;
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.robot-body {
-    width: 190px;
-    height: 150px;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    border-radius: 15px;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: 0 10px 40px rgba(79, 172, 254, 0.4);
-    animation: float 3s ease-in-out infinite 0.2s;
-}
-
-.robot-chest {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid var(--primary-color);
-}
-
-.robot-arms {
-    position: absolute;
-    top: 180px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.arm {
-    width: 18px;
-    height: 100px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 10px;
-    animation: armSwing 2s ease-in-out infinite;
-}
-
-.left-arm {
-    left: 25px;
-    animation-delay: 0s;
-}
-
-.right-arm {
-    right: 25px;
-    animation-delay: 1s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-@keyframes blink {
-    0%, 90%, 100% { transform: scaleY(1); }
-    95% { transform: scaleY(0.1); }
-}
-
-@keyframes armSwing {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(20deg); }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-/* 通用部分样式 */
-section {
-    padding: 100px 0;
-    position: relative;
-}
-
-.tab-section {
-    display: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.tab-section.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    background: var(--gradient-3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.section-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-gray);
-}
-
-/* 关于部分 */
-.about {
-    background: var(--bg-darker);
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.about-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 20px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    cursor: pointer;
-}
-
-.about-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-}
-
-.card-media {
-    width: 100%;
-    height: 160px;
-    border-radius: 16px;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: inset 0 0 30px rgba(0, 212, 255, 0.08);
-}
-
-.card-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.about-card:hover .card-media img {
-    transform: scale(1.08);
-}
-
-.about-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.about-card p {
-    color: var(--text-gray);
-    line-height: 1.8;
-}
-
-/* 功能部分 */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.feature-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2.5rem;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.feature-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
-    transition: left 0.5s ease;
-}
-
-.feature-item:hover::before {
-    left: 100%;
-}
-
-.feature-item:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-}
-
-.feature-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-    filter: drop-shadow(0 0 10px var(--primary-color));
-}
-
-.feature-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.feature-item p {
-    color: var(--text-gray);
-    line-height: 1.8;
-}
-
-.feature-item {
-    cursor: pointer;
-}
-
-/* 弹窗样式 */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(5, 8, 16, 0.98) 100%);
-    border-radius: 20px;
-    padding: 3rem;
-    max-width: 600px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
-    transform: scale(0.8) translateY(50px);
-    transition: transform 0.3s ease;
-}
-
-.modal-overlay.active .modal-content {
-    transform: scale(1) translateY(0);
-}
-
-.modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: transparent;
-    border: none;
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    line-height: 1;
-}
-
-.modal-close:hover {
-    background: rgba(0, 212, 255, 0.2);
-    transform: rotate(90deg);
-}
-
-.modal-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-}
-
-.modal-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    filter: drop-shadow(0 0 20px var(--primary-color));
-    animation: pulse 2s infinite;
-}
-
-.modal-header h2 {
-    font-size: 2rem;
-    background: var(--gradient-3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0;
-}
-
-.modal-body {
-    color: var(--text-light);
-}
-
-.modal-body #modalDescription {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-gray);
-    margin-bottom: 2rem;
-}
-
-.modal-features {
-    margin-top: 2rem;
-}
-
-.modal-features h3 {
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-.modal-features ul {
-    list-style: none;
-    padding: 0;
-}
-
-.modal-features ul li {
-    padding: 0.8rem 0;
-    padding-left: 2rem;
-    position: relative;
-    color: var(--text-gray);
-    line-height: 1.6;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-}
-
-.modal-features ul li:last-child {
-    border-bottom: none;
-}
-
-.modal-features ul li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* 自定义滚动条 */
-.modal-content::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 10px;
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-}
-
-/* 技术部分 */
-.tech {
-    background: var(--bg-darker);
-}
-
-.tech-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.tech-item {
-    margin-bottom: 2rem;
-}
-
-.tech-label {
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
-    font-weight: 600;
-}
-
-.tech-progress {
-    height: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-}
-
-.tech-fill {
-    height: 100%;
-    background: var(--gradient-3);
-    border-radius: 15px;
-    width: 0;
-    transition: width 1s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.tech-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-.tech-stack {
-    margin-top: 4rem;
-}
-
-.tech-subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    text-align: center;
-}
-
-.tech-description {
-    text-align: center;
-    color: var(--text-gray);
-    margin-bottom: 2rem;
-}
-
-.tech-stack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.tech-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    border-radius: 18px;
-    padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.08);
-    backdrop-filter: blur(12px);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.tech-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary-color);
-}
-
-.tech-card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-}
-
-.tech-card h4 {
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
-}
-
-.tech-card p {
-    color: var(--text-gray);
-    margin-bottom: 1rem;
-}
-
-.tech-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.tech-card ul li {
-    padding-left: 1.2rem;
-    position: relative;
-    color: var(--text-gray);
-    margin-bottom: 0.4rem;
-}
-
-.tech-card ul li::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    position: absolute;
-    left: 0;
-    top: 0.6rem;
-}
-
-.tech-pipeline {
-    margin-top: 4rem;
-}
-
-.pipeline-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-}
-
-.pipeline-step {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    border-radius: 16px;
-    padding: 1.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.pipeline-step::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    border: 1px solid rgba(0, 212, 255, 0.15);
-    pointer-events: none;
-}
-
-.pipeline-step:hover {
-    transform: translateY(-6px);
-    border-color: var(--primary-color);
-}
-
-.pipeline-image {
-    width: 100%;
-    height: 160px;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.pipeline-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-    filter: saturate(1.1);
-}
-
-.pipeline-step:hover .pipeline-image img {
-    transform: scale(1.08);
-}
-
-.step-index {
-    font-size: 2rem;
-    font-weight: 700;
-    color: rgba(0, 212, 255, 0.8);
-    margin-bottom: 0.5rem;
-}
-
-.pipeline-step h4 {
-    color: var(--text-light);
-    margin-bottom: 0.3rem;
-}
-
-.pipeline-step p {
-    color: var(--text-gray);
-    line-height: 1.7;
-}
-
-/* 联系部分 */
-.contact-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-form {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 3rem;
-    border-radius: 20px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    border-radius: 10px;
-    color: var(--text-light);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text-gray);
-}
-
-/* 页脚 */
-.footer {
-    background: var(--bg-darker);
-    padding: 3rem 0 1rem;
-    border-top: 1px solid rgba(0, 212, 255, 0.2);
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-    color: var(--text-gray);
-}
-
-.footer-section ul li a {
-    color: var(--text-gray);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: var(--primary-color);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0, 212, 255, 0.1);
-    color: var(--text-gray);
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: rgba(10, 14, 39, 0.95);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 2rem 0;
-        border-top: 1px solid rgba(0, 212, 255, 0.2);
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hero .container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .about-content,
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI机器人 - 未来科技</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🤖</span>
+                <span class="logo-text" data-i18n="brand.name">AI Robot</span>
+            </div>
+            <div class="nav-actions">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="tab-link active" data-tab-target="home" data-i18n="nav.home">首页</a></li>
+                    <li><a href="#about" class="tab-link" data-tab-target="about" data-i18n="nav.about">关于</a></li>
+                    <li><a href="#features" class="tab-link" data-tab-target="features" data-i18n="nav.features">功能</a></li>
+                    <li><a href="#tech" class="tab-link" data-tab-target="tech" data-i18n="nav.tech">技术</a></li>
+                    <li><a href="#contact" class="tab-link" data-tab-target="contact" data-i18n="nav.contact">联系</a></li>
+                </ul>
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页部分 -->
+    <section id="home" class="hero tab-section active">
+        <div class="particles"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-effects">
+            <div class="glow-sphere sphere-one"></div>
+            <div class="glow-sphere sphere-two"></div>
+            <div class="glow-sphere sphere-three"></div>
+            <div class="orbit orbit-one">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="orbit orbit-two">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="data-stream">
+                <span>010110101001</span>
+                <span>101100111000</span>
+                <span>110100101011</span>
+                <span>001101010100</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text" data-i18n="hero.titleHighlight">AI机器人</span>
+                    <br><span data-i18n="hero.titleMain">开启智能未来</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">融合人工智能与创新科技，打造下一代智能助手</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary tab-trigger" data-tab-target="about" data-i18n="hero.btnExplore">探索更多</a>
+                    <a href="#contact" class="btn btn-secondary tab-trigger" data-tab-target="contact" data-i18n="hero.btnExperience">立即体验</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="robot-container">
+                    <div class="robot">
+                        <div class="robot-head">
+                            <div class="robot-eye left-eye"></div>
+                            <div class="robot-eye right-eye"></div>
+                            <div class="robot-mouth"></div>
+                        </div>
+                        <div class="robot-body">
+                            <div class="robot-chest"></div>
+                        </div>
+                        <div class="robot-arms">
+                            <div class="arm left-arm"></div>
+                            <div class="arm right-arm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于部分 -->
+    <section id="about" class="about tab-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="about.title">关于AI机器人</h2>
+                <p class="section-subtitle" data-i18n="about.subtitle">革命性的智能助手，重新定义人机交互</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card" data-about="learning">
+                    <div class="card-media">
+                        <img src="resource/1.png" alt="AI 机器人智能学习插图">
+                    </div>
+                    <h3 data-i18n="about.cards.learning.title">智能学习</h3>
+                    <p data-i18n="about.cards.learning.desc">采用深度学习算法，持续学习并优化，提供更精准的服务</p>
+                </div>
+                <div class="about-card" data-about="speed">
+                    <div class="card-media">
+                        <img src="resource/2.jpg" alt="AI 极速响应插图">
+                    </div>
+                    <h3 data-i18n="about.cards.speed.title">极速响应</h3>
+                    <p data-i18n="about.cards.speed.desc">毫秒级响应速度，实时处理您的需求，提升工作效率</p>
+                </div>
+                <div class="about-card" data-about="security">
+                    <div class="card-media">
+                        <img src="resource/3.jpg" alt="AI 安全可靠插图">
+                    </div>
+                    <h3 data-i18n="about.cards.security.title">安全可靠</h3>
+                    <p data-i18n="about.cards.security.desc">企业级安全防护，保护您的数据隐私和信息安全</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能部分 -->
+    <section id="features" class="features tab-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="features.title">核心功能</h2>
+                <p class="section-subtitle" data-i18n="features.subtitle">强大的功能，满足您的各种需求</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item" data-feature="dialogue">
+                    <div class="feature-icon">💬</div>
+                    <h3 data-i18n="features.items.dialogue.title">智能对话</h3>
+                    <p data-i18n="features.items.dialogue.desc">自然语言处理，理解上下文，进行流畅对话</p>
+                </div>
+                <div class="feature-item" data-feature="analysis">
+                    <div class="feature-icon">📊</div>
+                    <h3 data-i18n="features.items.analysis.title">数据分析</h3>
+                    <p data-i18n="features.items.analysis.desc">快速分析大量数据，生成可视化报告</p>
+                </div>
+                <div class="feature-item" data-feature="creative">
+                    <div class="feature-icon">🎨</div>
+                    <h3 data-i18n="features.items.creative.title">创意生成</h3>
+                    <p data-i18n="features.items.creative.desc">AI驱动的创意工具，激发无限灵感</p>
+                </div>
+                <div class="feature-item" data-feature="multilang">
+                    <div class="feature-icon">🌐</div>
+                    <h3 data-i18n="features.items.multilang.title">多语言支持</h3>
+                    <p data-i18n="features.items.multilang.desc">支持全球多种语言，打破沟通壁垒</p>
+                </div>
+                <div class="feature-item" data-feature="automation">
+                    <div class="feature-icon">🔧</div>
+                    <h3 data-i18n="features.items.automation.title">自动化任务</h3>
+                    <p data-i18n="features.items.automation.desc">智能自动化，解放双手，提高效率</p>
+                </div>
+                <div class="feature-item" data-feature="crossplatform">
+                    <div class="feature-icon">📱</div>
+                    <h3 data-i18n="features.items.crossplatform.title">跨平台</h3>
+                    <p data-i18n="features.items.crossplatform.desc">支持多平台使用，随时随地访问</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术部分 -->
+    <section id="tech" class="tech tab-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="tech.title">技术架构</h2>
+                <p class="section-subtitle" data-i18n="tech.subtitle">前沿技术，驱动未来</p>
+            </div>
+            <div class="tech-content">
+                <div class="tech-item">
+                    <div class="tech-bar">
+                        <div class="tech-label" data-i18n="tech.metrics.ml">机器学习</div>
+                        <div class="tech-progress" data-progress="95">
+                            <div class="tech-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-bar">
+                        <div class="tech-label" data-i18n="tech.metrics.nlp">自然语言处理</div>
+                        <div class="tech-progress" data-progress="90">
+                            <div class="tech-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-bar">
+                        <div class="tech-label" data-i18n="tech.metrics.cv">计算机视觉</div>
+                        <div class="tech-progress" data-progress="88">
+                            <div class="tech-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-bar">
+                        <div class="tech-label" data-i18n="tech.metrics.nn">神经网络</div>
+                        <div class="tech-progress" data-progress="92">
+                            <div class="tech-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tech-stack">
+                <h3 class="tech-subtitle" data-i18n="tech.stack.title">多层架构</h3>
+                <p class="tech-description" data-i18n="tech.stack.desc">AI Robot 采用数据→感知→认知→部署的多层体系，确保从数据采集到智能服务全链路可控。</p>
+                <div class="tech-stack-grid">
+                    <div class="tech-card">
+                        <div class="tech-card-icon">🛰️</div>
+                        <h4 data-i18n="tech.stack.data.title">数据层</h4>
+                        <p data-i18n="tech.stack.data.desc">多源传感器与业务系统实时汇聚，支持结构化与非结构化数据。</p>
+                        <ul>
+                            <li data-i18n="tech.stack.data.item1">Kafka + MQTT 流式通道</li>
+                            <li data-i18n="tech.stack.data.item2">湖仓一体存储架构</li>
+                            <li data-i18n="tech.stack.data.item3">内置数据脱敏策略</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-card-icon">🧠</div>
+                        <h4 data-i18n="tech.stack.cognitive.title">认知层</h4>
+                        <p data-i18n="tech.stack.cognitive.desc">多模型协同推理，融合 NLP、CV 与多模态感知。</p>
+                        <ul>
+                            <li data-i18n="tech.stack.cognitive.item1">Transformer + GNN 混合模型</li>
+                            <li data-i18n="tech.stack.cognitive.item2">AutoML 自动超参优化</li>
+                            <li data-i18n="tech.stack.cognitive.item3">知识图谱实时更新</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-card-icon">☁️</div>
+                        <h4 data-i18n="tech.stack.service.title">服务层</h4>
+                        <p data-i18n="tech.stack.service.desc">基于微服务与 Serverless 架构，按需弹性扩缩。</p>
+                        <ul>
+                            <li data-i18n="tech.stack.service.item1">Kubernetes 智能调度</li>
+                            <li data-i18n="tech.stack.service.item2">边缘+云协同部署</li>
+                            <li data-i18n="tech.stack.service.item3">灰度发布与A/B测试</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tech-pipeline">
+                <h3 class="tech-subtitle" data-i18n="tech.pipeline.title">智能工作流</h3>
+                <div class="pipeline-steps">
+                    <div class="pipeline-step">
+                        <div class="pipeline-image">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="数据采集流程示意图" loading="lazy">
+                        </div>
+                        <div class="step-index">01</div>
+                        <h4 data-i18n="tech.pipeline.step1.title">数据采集</h4>
+                        <p data-i18n="tech.pipeline.step1.desc">多源实时数据进入消息总线，自动完成清洗与标准化。</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-image">
+                            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="模型训练 GPU 集群" loading="lazy">
+                        </div>
+                        <div class="step-index">02</div>
+                        <h4 data-i18n="tech.pipeline.step2.title">模型训练</h4>
+                        <p data-i18n="tech.pipeline.step2.desc">AutoML 管理训练任务，结合 GPU 集群快速收敛。</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-image">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="智能推理代码界面" loading="lazy">
+                        </div>
+                        <div class="step-index">03</div>
+                        <h4 data-i18n="tech.pipeline.step3.title">智能推理</h4>
+                        <p data-i18n="tech.pipeline.step3.desc">根据场景自动选择最佳模型，输出解释型推理结果。</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-image">
+                            <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80" alt="部署反馈监控面板" loading="lazy">
+                        </div>
+                        <div class="step-index">04</div>
+                        <h4 data-i18n="tech.pipeline.step4.title">部署反馈</h4>
+                        <p data-i18n="tech.pipeline.step4.desc">服务网格统一发布，监控闭环反馈模型，再训练持续迭代。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系部分 -->
+    <section id="contact" class="contact tab-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="contact.title">联系我们</h2>
+                <p class="section-subtitle" data-i18n="contact.subtitle">让我们一起探索AI的无限可能</p>
+            </div>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="contactName" placeholder="您的姓名" data-i18n-placeholder="contact.form.name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contactEmail" placeholder="您的邮箱" data-i18n-placeholder="contact.form.email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contactMessage" placeholder="您的消息" rows="5" data-i18n-placeholder="contact.form.message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.brand">AI Robot</h3>
+                    <p data-i18n="footer.tagline">引领智能未来，创造无限可能</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.linksTitle">快速链接</h4>
+                    <ul>
+                        <li><a href="#home" class="tab-trigger" data-tab-target="home" data-i18n="nav.home">首页</a></li>
+                        <li><a href="#about" class="tab-trigger" data-tab-target="about" data-i18n="nav.about">关于</a></li>
+                        <li><a href="#features" class="tab-trigger" data-tab-target="features" data-i18n="nav.features">功能</a></li>
+                        <li><a href="#tech" class="tab-trigger" data-tab-target="tech" data-i18n="nav.tech">技术</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.contactTitle">联系方式</h4>
+                    <ul>
+                        <li data-i18n="footer.email">邮箱: contact@airobot.com</li>
+                        <li data-i18n="footer.phone">电话: +86 123 4567 8900</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copy">&copy; 2024 AI Robot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 功能详情弹窗 -->
+    <div class="modal-overlay" id="featureModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon"></div>
+                <h2 id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <div id="modalDescription"></div>
+                <div class="modal-features" id="modalFeatures"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
